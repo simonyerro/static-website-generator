@@ -1,4 +1,5 @@
 pip_package: python3-pip
 pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"
-pip_install_packages: [urllib, bs4, requests]
-url_to_crawl: https://www.orchestra.eu
+pip_install_packages: [bs4, requests]
+crawl_script_url: https://www.orchestra.eu
+crawl_script_depth: 2

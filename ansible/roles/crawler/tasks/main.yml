@@ -15,6 +15,21 @@
 
 - name: Run Crawler script
   script:
-    cmd: crawler.py "{{ url_to_crawl }}"
+    cmd: crawler.py "{{ crawl_script_url }}" "{{ crawl_script_depth }}"
   args:
     executable: python3
+
+- name: Ensure nginx is installed and up-to-date
+    apt:
+      name: nginx
+      state: latest
+
+- name: Set nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started

@@ -123,14 +123,11 @@ class Crawl:
             print("Directory '{}' can not be created".format(directory))
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print("You need to provide the url to crawl\n ex: python3 main.py https://www.orchestra.eu")
-        sys.exit(3)
-    elif len(sys.argv) > 2:
-        print("There are too many arguments here")
+    if len(sys.argv) != 3:
+        print("You need to provide the url to crawl and the depth to go\n ex: python3 main.py https://www.orchestra.eu 2")
         sys.exit(3)
     if not re.fullmatch(URL_REGEX, sys.argv[1]):
         print("The url doesn't seem to be valid")
         sys.exit(3)
-    crawl = Crawl(sys.argv[1], 3)
+    crawl = Crawl(sys.argv[1], sys.argv[2])
     sys.exit(crawl.crawl())
