@@ -7,6 +7,8 @@
 > * Generate ssl certificate
 > * Deploy nginx configuration
 
+:warning: This playbook assumed that openssl is installed already since it is installed by default in most of the distros
+
 ## How to use
 
 ```bash
@@ -19,11 +21,6 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
-# The pip package to use (here for python3)
-pip_package: python3-pip
-pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"
-# The packages to install
-pip_install_packages: [bs4, requests]
 # The url to use
 crawl_script_url: www.orchestra.eu
 # The depth to go on the links on the given website
