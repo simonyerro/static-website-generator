@@ -7,13 +7,15 @@
 > * Generate ssl certificate
 > * Deploy nginx configuration
 
-:warning: This playbook assumed that openssl is installed already since it is installed by default in most of the distros
+:warning: This playbook assume that openssl is already installed since it is installed by default on most of the distros
 
 ## How to use
 
 ```bash
 ansible-playbook main.yml
 ```
+
+When the playbook using the role have finished, you can access to the content downloaded on your web browser at: https://localhost
 
 ## Variables
 
